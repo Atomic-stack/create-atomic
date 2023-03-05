@@ -17,7 +17,7 @@
   ],
   "parserOptions": {
     "project": [
-      "./tsconfig.xo.json"
+      "./tsconfig.json"
     ],
     "ecmaVersion": "latest",
     "sourceType": "module"
