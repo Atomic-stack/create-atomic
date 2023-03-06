@@ -29,7 +29,7 @@ Batteries included:
   - Tests
 
 ## Modern standards
-Write the latest and greatest TypeScript.
+Write the latest and greatest TypeScript with a best-in-class developer experience.
 
 Ship JavaScript modules that are standards-compliant and performance oriented.
 
