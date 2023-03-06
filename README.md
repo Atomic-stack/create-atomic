@@ -1,16 +1,32 @@
-# TSNext
-An opinionated TypeScript build toolchain for modern, standard JS libraries.
+# create-atomic
+An opinionated TypeScript project generator for modern node projects and libraries.
 
-## Zero config out-of-the-box
+## Scaffolding your project
+With npm
+```
+npm create atomic
+```
+
+With yarn
+```
+yarn create atomic
+```
+
+With pnpm:
+```
+pnpm create atomic
+```
+
+Then just follow the prompts to create your project!
+
+## What you get
+Start building today with zero-config out of the box.
+
 Batteries included:
-  - editorconfig
-  - Pretier
-  - Eslint standard
-  - tsconfigs for browser/node.
-
-Stop js fatigue and focus on building and shipping!
-
-Minimalistic but also flexible.
+  - tsconfig
+  - Prettier
+  - Eslint
+  - Tests
 
 ## Modern standards
 Write the latest and greatest TypeScript.

@@ -1,10 +1,56 @@
 {
-  "name": "ts-next",
-  "description": "An opinionated TypeScript build toolchain for modern, standard JS libraries.",
-  "version": "0.1.0",
-  "main": "build/index.js",
+  "name": "create-atomic",
+  "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
+  "author": "Adrian Cruz",
+  "description": "An opinionated TypeScript build toolchain for modern, node projects.",
+  "files": [
+    "build/*"
+  ],
+  "main": "build/index.js",
+  "engines": {
+    "node": ">= 16.0.0"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc -p ./tsconfig.json && shx rm -rf build/templates && shx cp -r ./templates build",
+    "prepublishOnly": "shx rm -rf build && npm run build",
+    "format": "prettier --write src/**",
+    "lint": "eslint src/**",
+    "lint:fix": "eslint src/** --fix",
+    "test": "jasmine --config=jasmine.json"
+  },
+  "bin": {
+    "create-atomic": "build/index.js"
+  },
+  "lint-staged": {
+    "*.ts": "eslint"
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "lint-staged && pretty-quick --staged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atomic-stack/create-atomic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Atomic-stack/create-atomic/issues"
+  },
+  "homepage": "https://github.com/Atomic-stack/create-atomic#readme",
+  "keywords": [
+    "atomic",
+    "atomic-stack",
+    "typescript",
+    "ecmascript",
+    "es2019",
+    "es2020",
+    "es2021"
+  ],
   "devDependencies": {
+    "@types/ejs": "^3.1.2",
     "@types/inquirer": "^9.0.3",
     "@types/node": "^18.14.6",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
@@ -23,47 +69,12 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "pretty-quick": "^3.1.3",
+    "shx": "^0.3.4",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
-  "scripts": {
-    "build": "tsc -p ./tsconfig.json --declaration",
-    "format": "prettier --write src/**",
-    "lint": "eslint src/**",
-    "lint:fix": "eslint src/** --fix",
-    "start": "ts-node src/index.ts",
-    "test": "jasmine --config=jasmine.json"
-  },
-  "lint-staged": {
-    "*.ts": "eslint"
-  },
-  "husky": {
-    "hooks": {
-      "precommit": "lint-staged && pretty-quick --staged"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adrian2x/ts-next.git"
-  },
-  "keywords": [
-    "@tsnext",
-    "@ts-next",
-    "tsnext",
-    "ts-next",
-    "typescript",
-    "ecmascript",
-    "es2019",
-    "es2020",
-    "es2021"
-  ],
-  "author": "Adrian Cruz <adrian2x>",
-  "license": "Apache License v2.0",
-  "bugs": {
-    "url": "https://github.com/adrian2x/ts-next/issues"
-  },
-  "homepage": "https://github.com/adrian2x/ts-next#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
     "inquirer": "^9.1.4"
   }
 }
