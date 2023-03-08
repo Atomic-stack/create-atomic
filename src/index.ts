@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import inquirer from 'inquirer'
 import chalk from 'chalk'
-import { fileURLToPath } from 'url'
 import * as ejs from 'ejs'
 
 //define message type and reuse them whenever you want
