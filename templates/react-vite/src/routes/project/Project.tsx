@@ -1,10 +1,15 @@
 import * as React from 'react'
-import {
-  json,
-  useLoaderData,
-  useRouteError,
-  isRouteErrorResponse
-} from 'react-router-dom'
+import { json, useLoaderData, useRouteError, isRouteErrorResponse } from 'react-router-dom'
+
+type ProjectData = {
+  project: {
+    id: string
+    name: string
+    owner: string
+    deadline: string
+    cost: string
+  }
+}
 
 export function projectLoader({ params }: any) {
   if (params.projectId === 'unauthorized') {
@@ -35,7 +40,7 @@ export function projectLoader({ params }: any) {
 }
 
 export default function Project() {
-  const { project } = useLoaderData()
+  const { project } = useLoaderData() as ProjectData
 
   return (
     <>

@@ -7,12 +7,12 @@ import {
   RouterProvider,
   useRouteError
 } from 'react-router-dom'
-import { ProjectErrorBoundary, projectLoader } from './project/Project'
+import { ProjectErrorBoundary, projectLoader } from './routes/project/Project'
 
 // Lazy loaded routes
-const About = React.lazy(() => import('./about/About'))
-const Dashboard = React.lazy(() => import('./dashboard/Dashboard'))
-const Project = React.lazy(() => import('./project/Project'))
+const About = React.lazy(() => import('./routes/about/About'))
+const Dashboard = React.lazy(() => import('./routes/dashboard/Dashboard'))
+const Project = React.lazy(() => import('./routes/project/Project'))
 
 // Route components
 let router = createBrowserRouter([

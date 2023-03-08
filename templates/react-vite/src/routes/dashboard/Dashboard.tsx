@@ -1,17 +1,17 @@
-import * as React from "react";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import * as React from 'react'
+import { Routes, Route, Outlet, Link } from 'react-router-dom'
 
 export default function Dashboard() {
   // These routes are defined when this component is loaded on demand via
   // dynamic import() on the home page!
   return (
     <Routes>
-      <Route path="/" element={<DashboardLayout />}>
+      <Route path='/' element={<DashboardLayout />}>
         <Route index element={<DashboardIndex />} />
-        <Route path="messages" element={<Messages />} />
+        <Route path='messages' element={<Messages />} />
       </Route>
     </Routes>
-  );
+  )
 }
 
 function DashboardLayout() {
@@ -20,10 +20,10 @@ function DashboardLayout() {
       <nav>
         <ul>
           <li>
-            <Link to="/dashboard">Dashboard Home</Link>
+            <Link to='/dashboard'>Dashboard Home</Link>
           </li>
           <li>
-            <Link to="/dashboard/messages">Messages</Link>
+            <Link to='/dashboard/messages'>Messages</Link>
           </li>
         </ul>
       </nav>
@@ -32,7 +32,7 @@ function DashboardLayout() {
 
       <Outlet />
     </div>
-  );
+  )
 }
 
 function DashboardIndex() {
@@ -40,7 +40,7 @@ function DashboardIndex() {
     <div>
       <h2>Dashboard Index</h2>
     </div>
-  );
+  )
 }
 
 function Messages() {
@@ -52,5 +52,5 @@ function Messages() {
         <li>Message 2</li>
       </ul>
     </div>
-  );
+  )
 }
