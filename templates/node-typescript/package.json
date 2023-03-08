@@ -6,7 +6,7 @@
   "type": "module",
   "main": "build/index.js",
   "engines": {
-    "node": ">= 16.0.0"
+    "node": ">= 16.16.0"
   },
   "scripts": {
     "build": "tsc -p ./tsconfig.json --declaration",
