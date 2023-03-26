@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Run `npx prisma db pull` to autogenerate your models.
+
+// A model represents a document
+// model User {
+//   id        String   @id @default(cuid())
+//   firstname String?
+//   lastname  String?
+//   email     String?  @unique
+//   createdAt DateTime @default(now()) @map(name: "created_at")
+//   updatedAt DateTime @updatedAt @map(name: "updated_at")
+//   posts     Post[]
+//   @@map(name: "users")
+// }
+
+// Use typedefs to represent an embedded document
+// type Address {
+//   street String
+//   city   String
+//   state  String
+//   zip    String
+// }
