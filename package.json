@@ -1,10 +1,10 @@
 {
   "name": "create-atomic",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "license": "MIT",
   "author": "Adrian Cruz",
-  "description": "An opinionated TypeScript build toolchain for modern, node projects.",
+  "description": "An opinionated TypeScript build toolchain for modern node projects and libraries.",
   "main": "./build/index.js",
   "engines": {
     "node": ">= 16.0.0"
@@ -18,9 +18,10 @@
     "lint:fix": "eslint src/** --fix",
     "test": "jasmine --config=jasmine.json"
   },
-  "bin": {
-    "create-atomic": "./build/index.js"
-  },
+  "bin": "./build/index.js",
+  "files": [
+    "build"
+  ],
   "lint-staged": {
     "*.ts": "eslint"
   },
