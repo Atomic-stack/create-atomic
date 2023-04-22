@@ -4,17 +4,17 @@ An opinionated TypeScript project generator for modern node projects and librari
 ## Scaffolding your project
 With npm
 ```
-npm create atomic
+npm create atomic@latest
 ```
 
 With yarn
 ```
-yarn create atomic
+yarn create atomic@latest
 ```
 
 With pnpm:
 ```
-pnpm create atomic
+pnpm create atomic@latest
 ```
 
 Then just follow the prompts to create your project!
