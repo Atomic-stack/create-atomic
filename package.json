@@ -1,6 +1,6 @@
 {
   "name": "create-atomic",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "type": "module",
   "license": "MIT",
   "author": "Adrian Cruz",
@@ -11,14 +11,16 @@
   },
   "scripts": {
     "start": "ts-node src/index.ts",
-    "build": "tsc -p ./tsconfig.json && rm -rf build/templates && rsync -r --exclude=node_modules --exclude=dist templates build",
-    "prepublishOnly": "npm run build",
+    "build": "tsc -p ./tsconfig.json && rm -rf build/templates && rsync -r --exclude=node_modules --exclude=dist --exclude=.next --exclude=.vscode templates build",
+    "prepublishOnly": "rm -r build && npm run build",
     "format": "prettier --write src/**",
     "lint": "eslint src/**",
     "lint:fix": "eslint src/** --fix",
     "test": "jasmine --config=jasmine.json"
   },
-  "bin": "./build/index.js",
+  "bin": {
+    "create-atomic": "./build/index.js"
+  },
   "files": [
     "build"
   ],

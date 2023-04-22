@@ -27,7 +27,7 @@ const QUESTIONS = [
   {
     name: 'template',
     type: 'list',
-    message: 'What kind of project is this?',
+    message: 'What are you building?',
     choices: templates
   },
   {
@@ -84,6 +84,7 @@ function createDirectoryContents(templatePath: string, projectName: string) {
   // loop each file/folder
   filesToCreate.forEach((file) => {
     const origFilePath = path.join(templatePath, file)
+    // console.log(info(`Creating ${file}`))
 
     // get stats about the current file
     const stats = fs.statSync(origFilePath)
@@ -92,17 +93,24 @@ function createDirectoryContents(templatePath: string, projectName: string) {
     if (IGNORE.indexOf(file) > -1) return
 
     if (stats.isFile()) {
-      // read file content and transform it using template engine
-      let contents = fs.readFileSync(origFilePath, 'utf8')
-      contents = ejs.render(contents, { projectName })
-      // write file to destination folder
       const writePath = path.join(CURR_DIR, projectName, file)
-      fs.writeFileSync(writePath, contents, 'utf8')
+      if (origFilePath.endsWith('json') || origFilePath.endsWith('.md')) {
+        // read file content and transform it using template engine
+        let contents = fs.readFileSync(origFilePath, 'utf8')
+        contents = ejs.render(contents, { projectName })
+        // write file to destination folder
+        fs.writeFileSync(writePath, contents, 'utf8')
+      } else {
+        fs.cpSync(origFilePath, writePath)
+      }
     } else if (stats.isDirectory()) {
       // create folder in destination folder
       fs.mkdirSync(path.join(CURR_DIR, projectName, file))
       // copy files/folder inside current folder recursively
-      createDirectoryContents(path.join(templatePath, file), path.join(projectName, file))
+      // createDirectoryContents(path.join(templatePath, file), path.join(projectName, file))
+      fs.cpSync(path.join(templatePath, file), path.join(projectName, file), {
+        recursive: true
+      })
     }
   })
 }
