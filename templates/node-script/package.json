@@ -1,0 +1,23 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">= 16.18.0"
+  },
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "prepublishOnly": "npm run build",
+    "start": "ts-node --esm index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
